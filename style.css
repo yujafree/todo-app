@@ -5,9 +5,9 @@
 }
 
 html, body{
-font-family: 'Noto Sans Korean', 'roboto';
+font-family: 'Pretendard', 'roboto';
   font-size: 17px;
-  background-color: #cfcfcf;
+  background-color: #6c7ba1;
 }
 
 input, button{
@@ -17,71 +17,162 @@ input, button{
 
 .todo-app{
   width: 100%;
-  max-width: 360px;
-  height: 450px;
-  margin: 50px auto;
+  max-width: 300px;
+  height: 510px;
+  margin: 25px auto;
   background-color: #fff;
   border-radius: 5px;
-  padding:20px
+  padding:20px;
 }
 
-h1{
-text-align: center;
-color: #333;
-padding: 1.2rem;
-text-decoration: underline double black;
-}
-
-.todo-input-section{
+/*HAM-BAR와 달*/
+.section-1{
   display: flex;
-  margin-bottom: 30px;
-  margin-top: 15px;
+}
+.ham-bar{
+  padding-left: 10px;
+  cursor: pointer;
+
+}
+.month{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-right: 18px;
 }
 
-.todo-input{
-  padding: 10px;
-  flex: 1;
+/*달력*/
+.section-2{
+  margin-top: 20px;
+  width: 300px;
+  height: 280px;
+  border-bottom: 2px solid #dedede;
 }
+.week-day{
+  display: grid;
+  grid-template-columns: repeat(7,1fr);
+  grid-template-rows: repeat(1, 1fr);
+}
+.week{
+  display: flex;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding-bottom: 20px;
+  color: #1b1b1b;
 
-.todo-input-button{
-  color: #fff;
-  background-color: #ca3d21;
-  border: none;
-  padding:10px;
+}
+.day-number{
+  display: grid;
+  grid-template-columns: repeat(7,1fr);
+  grid-template-rows: repeat(6, 1fr);
+  row-gap: 25px;
+  font-size: 0.8rem;
+}
+.day{
+display: flex;
+justify-content: center;
+font-weight: 700;
+position: relative;
+cursor: pointer;
+}
+.last-day{
+  display: flex;
+  justify-content: center;
+  color: #dedede;
+  font-weight: 700;
   cursor: pointer;
 }
+.today{
+  position: absolute;
+  border: 2px solid #ffffff;
+  top: -7px;
+  width: 25px;
+  height: 25px;
+  border-radius: 0.6rem;
+}
 
+.today-2{
+  position: absolute;
+  border: 2px solid #f03d19;
+  top: -7px;
+  width: 25px;
+  height: 25px;
+  border-radius: 0.6rem;
+}
 
-/*하단 체크박스 부분*/
+.spot{
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color:#6c7ba1;
+  border-radius: 50px;
+  margin-top: 31px;
+  margin-left: 10px;
+}
+
+.spot-2{
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color:#6c7ba1;
+  border-radius: 50px;
+  margin-top: 25px;
+}
+
+/*하단 리스트*/
+.section-3{
+  width: 100%;
+  height: 150px;
+}
+.bar{
+  margin-top: 10px;
+  padding-bottom: 15px;
+  display: flex;
+  justify-content: center;
+}
+.bar-line{
+  width: 45px;
+  height: 5px;
+  background-color: #dedede;
+  border-radius: 0.8rem;
+}
+
+/*체크박스 부분*/
 .todo-list{
+  padding-left: 10px;
+  margin-bottom: 12px;
+}
+.list{
   display: flex;
   align-items: center;
-  gap: .5rem;
-  margin-bottom: 1rem;
+  gap: 0.7em;
 }
 
 input[type="checkbox"]{
   position: relative;
-  width: 25px;
-  height: 25px;
-  background-color: #dedede;
-  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border: 1.8px solid #dedede;
+  border-radius: 0.3rem;
   appearance: none;
   cursor: pointer;
 }
 
 input[type="checkbox"]:checked{
-  background-color:#ca3d21;
+  background-color: #dedede;
 }
 
 input[type="checkbox"]::before{
   content: '';
   position: absolute;
-  top: 3px;
-  left: 8px;
-  width: 5px;
-  height: 12px;
-  border: 4px solid transparent;
+  top: 2px;
+  left: 6px;
+  width: 4px;
+  height: 9px;
+  border: 2px solid transparent;
   border-left: none;
   border-top: none;
   transform: rotate(45deg) scale(1);
@@ -93,7 +184,8 @@ input[type="checkbox"]:checked:before{
 
 label{
   color: #272727;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 500;
   cursor: pointer;
 }
 
@@ -102,61 +194,37 @@ input:checked + label{
   color: #dedede;
 }
 
-/*
-label{
-display: flex;
-align-items: center;
-margin-bottom: 10px;
-font-weight: 500;
-}
-
-span{
-  padding-left: 15px;
-}
-
-.todo-item input{
-  appearance: none;
-  width: 25px;
-  height: 25px;
-  background-color: #d5d5d5;
-  border-radius: 50%;
-  cursor: pointer;
+/* .section-4{
   display: flex;
-  justify-content: center;
   align-items: center;
-  color: white;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.plus-icon{
+  padding-left: 14px;
+  font-size: 14px;
+}
+.plus-list{
+  display: flex;
+  margin-left: 1rem;
+} */
+
+.section-4{
+  padding-left: 11px;
 }
 
-.todo-item input:hover{
-  background-color: #a5a5a5;
+.todo-input-area{
+  display: flex;
 }
 
-.todo-item input:checked{
-  background: rgb(194, 40, 10);
+.todo-input{
+  padding-left: 5px;
+  width: 219px;
+  font-size: 0.8rem;
 }
 
-.todo-item input:checked:before{
-  display: block;
+.todo-input-button{
+  width: 50px;
+  cursor: pointer;
 }
-
-.todo-item input:checked + span{
-  text-decoration: line-through;
-  color: #dedede;
-}
-
-.todo-item input:before{
-  content: "";
-  width: 1rem;
-  height: 1rem;
-  position: absolute;
-  top:0.2rem;
-  left: 0.2rem;
-  background: white;
-  border-radius: 0.7rem;
-  transition: 0.2s linear transform;
-}
-
-.todo-item input:checked:before{
-  transform: translateX(1rem);
-}
-*/
