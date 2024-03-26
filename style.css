@@ -1,40 +1,46 @@
-*{
-  margin:0;
-  padding:0;
+* {
+  margin: 0;
+  padding: 0;
   list-style: none;
 }
 
-html, body{
-font-family: 'Pretendard', 'roboto';
+html,
+body {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Pretendard", "roboto";
   font-size: 17px;
-  background-color: #6c7ba1;
+  background-color: #ede9d0;
+  /* background: linear-gradient(135deg, #153577, #4e085f); */
 }
 
-input, button{
+input,
+button {
   font-size: inherit;
   vertical-align: baseline;
 }
 
-.todo-app{
+.todo-app {
   width: 100%;
   max-width: 300px;
-  height: 510px;
   margin: 25px auto;
   background-color: #fff;
   border-radius: 5px;
-  padding:20px;
+  padding: 20px;
+  box-shadow: 0 1rem 3rem 1rem rgb(213 209 180);
 }
 
 /*HAM-BAR와 달*/
-.section-1{
+.section-1 {
   display: flex;
 }
-.ham-bar{
+.ham-bar {
   padding-left: 10px;
   cursor: pointer;
-
 }
-.month{
+.month {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -44,48 +50,47 @@ input, button{
 }
 
 /*달력*/
-.section-2{
+.section-2 {
   margin-top: 20px;
   width: 300px;
-  height: 280px;
+  height: 290px;
   border-bottom: 2px solid #dedede;
 }
-.week-day{
+.week-day {
   display: grid;
-  grid-template-columns: repeat(7,1fr);
+  grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(1, 1fr);
 }
-.week{
+.week {
   display: flex;
   justify-content: center;
   font-size: 0.7rem;
   font-weight: 600;
   padding-bottom: 20px;
   color: #1b1b1b;
-
 }
-.day-number{
+.day-number {
   display: grid;
-  grid-template-columns: repeat(7,1fr);
+  grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(6, 1fr);
   row-gap: 25px;
   font-size: 0.8rem;
 }
-.day{
-display: flex;
-justify-content: center;
-font-weight: 700;
-position: relative;
-cursor: pointer;
+.day {
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+  position: relative;
+  cursor: pointer;
 }
-.last-day{
+.last-day {
   display: flex;
   justify-content: center;
   color: #dedede;
   font-weight: 700;
   cursor: pointer;
 }
-.today{
+.today {
   position: absolute;
   border: 2px solid #ffffff;
   top: -7px;
@@ -94,46 +99,46 @@ cursor: pointer;
   border-radius: 0.6rem;
 }
 
-.today-2{
+.today-2 {
   position: absolute;
-  border: 2px solid #f03d19;
+  border: 2px solid #ff5945;
   top: -7px;
   width: 25px;
   height: 25px;
   border-radius: 0.6rem;
 }
 
-.spot{
+.spot {
   position: absolute;
   width: 5px;
   height: 5px;
-  background-color:#6c7ba1;
+  background-color: #ff5945;
   border-radius: 50px;
   margin-top: 31px;
   margin-left: 10px;
 }
 
-.spot-2{
+.spot-2 {
   position: absolute;
   width: 5px;
   height: 5px;
-  background-color:#6c7ba1;
+  background-color: #ff5945;
   border-radius: 50px;
   margin-top: 25px;
 }
 
 /*하단 리스트*/
-.section-3{
+.section-3 {
   width: 100%;
   height: 150px;
 }
-.bar{
+.bar {
   margin-top: 10px;
-  padding-bottom: 15px;
+  padding-bottom: 10px;
   display: flex;
   justify-content: center;
 }
-.bar-line{
+.bar-line {
   width: 45px;
   height: 5px;
   background-color: #dedede;
@@ -141,35 +146,31 @@ cursor: pointer;
 }
 
 /*체크박스 부분*/
-.todo-list{
-  padding-left: 10px;
-  margin-bottom: 12px;
-}
-.list{
-  display: flex;
-  align-items: center;
-  gap: 0.7em;
+ul li {
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  user-select: none;
+  cursor: pointer;
 }
 
-input[type="checkbox"]{
+input[type="checkbox"] {
   position: relative;
-  width: 20px;
-  height: 20px;
   border: 1.8px solid #dedede;
   border-radius: 0.3rem;
   appearance: none;
   cursor: pointer;
+  vertical-align: middle;
 }
 
-input[type="checkbox"]:checked{
+input[type="checkbox"]:checked {
   background-color: #dedede;
 }
 
-input[type="checkbox"]::before{
-  content: '';
+input[type="checkbox"]::before {
+  content: "";
   position: absolute;
-  top: 2px;
-  left: 6px;
+  top: 3px;
+  left: 7px;
   width: 4px;
   height: 9px;
   border: 2px solid transparent;
@@ -178,53 +179,60 @@ input[type="checkbox"]::before{
   transform: rotate(45deg) scale(1);
 }
 
-input[type="checkbox"]:checked:before{
+input[type="checkbox"]:checked:before {
   border-color: #fff;
 }
 
-label{
+label {
   color: #272727;
   font-size: 0.8rem;
   font-weight: 500;
   cursor: pointer;
+  width: 220px;
+  padding-left: 10px;
 }
 
-input:checked + label{
+input:checked + label {
   text-decoration: line-through;
   color: #dedede;
 }
 
-/* .section-4{
+.deleteTask {
+  background-color: #909090;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 5px 8px;
+  float: right;
+  margin-left: 10px;
+}
+
+.todo-input-area {
   display: flex;
   align-items: center;
-  font-size: 0.8rem;
-  font-weight: 500;
-  cursor: pointer;
-}
-.plus-icon{
-  padding-left: 14px;
-  font-size: 14px;
-}
-.plus-list{
-  display: flex;
-  margin-left: 1rem;
-} */
-
-.section-4{
-  padding-left: 11px;
+  justify-content: space-between;
+  background-color: #edeef0;
+  border-radius: 5px;
+  padding-left: 10px;
+  margin-top: 10px;
 }
 
-.todo-input-area{
-  display: flex;
-}
-
-.todo-input{
-  padding-left: 5px;
-  width: 219px;
+input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 10px;
   font-size: 0.8rem;
 }
 
-.todo-input-button{
-  width: 50px;
+button {
+  border: none;
+  outline: none;
+  padding: 10px 25px;
+  background-color: #ff5945;
+  color: #fff;
+  font-size: 0.8rem;
   cursor: pointer;
+  border-radius: 5px;
 }
